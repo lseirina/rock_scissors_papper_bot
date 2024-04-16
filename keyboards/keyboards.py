@@ -19,7 +19,7 @@ btn_rock = KeyboardButton(text=LEXICON_RU['rock'])
 btn_scissors = KeyboardButton(text=LEXICON_RU['scissors'])
 btn_papper = KeyboardButton(text=LEXICON_RU['papper'])
 
-game_kebord = ReplyKeyboardMarkup(
+game_keybord = ReplyKeyboardMarkup(
     keyboard=[[btn_rock],
               [btn_scissors],
               [btn_papper]],
