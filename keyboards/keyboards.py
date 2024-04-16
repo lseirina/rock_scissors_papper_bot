@@ -9,7 +9,7 @@ no_button = KeyboardButton(text=LEXICON_RU['no_button'])
 y_n_kb = ReplyKeyboardBuilder()
 y_n_kb.row(yes_button, no_button, width=2)
 
-yes_no_keyboard_1 = y_n_kb.as_markup(
+yes_no_keyboard = y_n_kb.as_markup(
     resize_keyboard=True,
     one_time_keyboard=True
 )
