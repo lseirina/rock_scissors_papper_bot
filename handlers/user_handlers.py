@@ -19,9 +19,9 @@ async def process_start_command(message: Message):
     )
 
 
-@router.mesage(Command(commands='help'))
+@router.message(Command(commands='help'))
 async def process_help_command(message: Message):
-    message.answer(
+    await message.answer(
         text=LEXICON_RU['/help'],
         reply_markup=yes_no_keyboard
     )
@@ -44,13 +44,13 @@ async def process_no_answer(message: Message):
 
 
 @router.message(F.text.in_(
-    LEXICON_RU['rock'],
-    LEXICON_RU['scissors'],
-    LEXICON_RU['papper'])
+    [LEXICON_RU['rock'],
+     LEXICON_RU['scissors'],
+     LEXICON_RU['papper']])
 )
 async def process_game_button(message: Message):
     bot_choice = get_bot_choice()
-    await message.answer(text=f'{LEXICON_RU["bot_choice"]}-'
+    await message.answer(text=f'{LEXICON_RU["bot_choice"]} - '
                               f'{LEXICON_RU[bot_choice]}')
     winner = get_winner(message.text, bot_choice)
     await message.answer(text=LEXICON_RU[winner], reply_markup=yes_no_keyboard)

@@ -28,6 +28,6 @@ async def main():
     dp.include_router(other_handlers.router)
 
     await bot.delete_webhook(drop_pending_updates=True)
-    await dp.run_polling(bot)
+    await dp.start_polling(bot)
 
 asyncio.run(main())
