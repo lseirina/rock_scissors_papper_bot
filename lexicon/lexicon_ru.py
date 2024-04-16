@@ -5,9 +5,9 @@ LEXICON_RU: dict[str, str] = {
     '/help': 'You need to choose from three variants: "rock", "scissors" and "papper" '
              'Rock crashs scissors, scissors cut papper, and papper wrapes a rock. '
              'Are you ready to play?',
-    'rock': 'Rock',
-    'papper': 'Papper',
-    'scissors': 'Scissors',
+    'rock': 'rock',
+    'papper': 'papper',
+    'scissors': 'scissors',
     'yes_button': 'Let`s play',
     'no_button': 'I don`t want',
     'other_answer': 'Sorry, i don`t understand this message.',
