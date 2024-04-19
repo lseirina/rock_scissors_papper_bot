@@ -35,7 +35,10 @@ BUTTONS: dict[str, str] = {
 }
 
 
-def create_inline_kb(width, *args, **kwargs):
+def create_inline_kb(width: int,
+                     lst_btn: str | None,
+                     *args: str,
+                     **kwargs: str):
     kb_builder = InlineKeyboardBuilder()
     buttons: list[InlineKeyboardButton] = []
     if args:
@@ -52,6 +55,11 @@ def create_inline_kb(width, *args, **kwargs):
             ))
 
     kb_builder.row(*buttons, width=width)
+    if lst_btn:
+        kb_builder.row(InlineKeyboardButton(
+            text=lst_btn,
+            callback_data='lst_btn'
+        ))
     return kb_builder.as_markup()
 
 
@@ -59,12 +67,9 @@ def create_inline_kb(width, *args, **kwargs):
 async def process_start_command(message: Message):
     keyboard = create_inline_kb(
         2,
-        btn_tel='Телефон',
-        btn_email='email',
-        btn_website='Web-сайт',
-        btn_vk='VK',
-        btn_tgbot='Наш телеграм-бот'
-)
+        lst_btn='Last button',
+        **BUTTONS
+    )
     await message.answer(
         text='This keyboard is formated by'
              '<code>create_inline_kb</code>',
