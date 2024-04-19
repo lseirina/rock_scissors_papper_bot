@@ -57,7 +57,14 @@ def create_inline_kb(width, *args, **kwargs):
 
 @dp.message(CommandStart())
 async def process_start_command(message: Message):
-    keyboard = create_inline_kb(2, 'btn_1', 'btn_2', 'btn_3')
+    keyboard = create_inline_kb(
+        2,
+        btn_tel='Телефон',
+        btn_email='email',
+        btn_website='Web-сайт',
+        btn_vk='VK',
+        btn_tgbot='Наш телеграм-бот'
+)
     await message.answer(
         text='This keyboard is formated by'
              '<code>create_inline_kb</code>',
